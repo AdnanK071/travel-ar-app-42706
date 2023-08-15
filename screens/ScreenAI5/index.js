@@ -1,11 +1,12 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, SafeAreaView, StyleSheet } from 'react-native';
 
 const UserProfileScreen = () => {
+  const navigation = useNavigation();
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
-  const [gender, setGender] = useState('');
-  const [birthday, setBirthday] = useState('');
   const [country, setCountry] = useState('');
 
   const handleNextButton = () => {// Handle next button logic here
@@ -13,9 +14,11 @@ const UserProfileScreen = () => {
 
   return <SafeAreaView style={styles.container}>
       <View style={styles.profileContainer}>
-        <Image source={{
-        uri: 'https://tinyurl.com/42evm3m3'
-      }} style={styles.profileImage} />
+        <Pressable onPress={() => {
+        navigation.navigate("ScreenAI7");
+      }}><Image source={{
+          uri: 'https://tinyurl.com/42evm3m3'
+        }} style={styles.profileImage} /></Pressable>
       </View>
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={setName} />

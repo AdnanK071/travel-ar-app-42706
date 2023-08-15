@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
-import { View, SafeAreaView, TextInput, Button, Image, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import { View, SafeAreaView, Button, Image, StyleSheet } from "react-native";
 
 const AvatarScreen = () => {
-  const [avatarImage, setAvatarImage] = useState('');
+  const [avatarImage, setAvatarImage] = useState("");
 
-  const handleImageChange = text => {
-    setAvatarImage(text);
+  const handleImageUpload = () => {// Logic to handle image upload
   };
 
   return <SafeAreaView style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput style={styles.input} placeholder="Enter Image URL" onChangeText={handleImageChange} />
-        <Button title="Generate Avatar" onPress={() => {}} />
+      <View style={styles.buttonContainer}>
+        <Button title="Upload Image" onPress={handleImageUpload} />
       </View>
       <View style={styles.avatarContainer}>
         <Image style={styles.avatarImage} source={{
-        uri: avatarImage || 'https://tinyurl.com/42evm3m3'
+        uri: avatarImage || "https://tinyurl.com/42evm3m3"
       }} />
       </View>
     </SafeAreaView>;
@@ -24,32 +22,22 @@ const AvatarScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff'
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff"
   },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  buttonContainer: {
     marginBottom: 20
-  },
-  input: {
-    flex: 1,
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginRight: 10,
-    paddingHorizontal: 10
   },
   avatarContainer: {
     width: 200,
     height: 200,
     borderRadius: 100,
-    overflow: 'hidden'
+    overflow: "hidden"
   },
   avatarImage: {
-    width: '100%',
-    height: '100%'
+    width: "100%",
+    height: "100%"
   }
 });
 export default AvatarScreen;
