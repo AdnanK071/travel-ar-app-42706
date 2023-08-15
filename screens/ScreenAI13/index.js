@@ -1,56 +1,68 @@
-import React from 'react';
-import { Text, TouchableOpacity, Image, SafeAreaView, StyleSheet } from 'react-native';
+import React from "react";
+import { Text, TouchableOpacity, Image, SafeAreaView, StyleSheet, View } from "react-native";
 
 const Screen = () => {
   return <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.hamburgerButton}>
         <Image source={{
-        uri: 'https://tinyurl.com/42evm3m3'
-      }} style={styles.image} />
-        <Text style={styles.buttonText}>Trinidad</Text>
+        uri: "https://tinyurl.com/42evm3m3"
+      }} style={styles.hamburgerIcon} />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Image source={{
-        uri: 'https://tinyurl.com/42evm3m3'
-      }} style={styles.image} />
-        <Text style={styles.buttonText}>Tobago</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Image source={{
-        uri: 'https://tinyurl.com/42evm3m3'
-      }} style={styles.image} />
-        <Text style={styles.buttonText}>Bermudas</Text>
-      </TouchableOpacity>
+      <View style={styles.bottomMenu}>
+        <TouchableOpacity style={styles.menuButton}>
+          <Text style={styles.menuButtonText}>Home</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menuButton}>
+          <Text style={styles.menuButtonText}>Profile</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menuButton}>
+          <Text style={styles.menuButtonText}>Navigate</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menuButton}>
+          <Text style={styles.menuButtonText}>Rally</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menuButton}>
+          <Text style={styles.menuButtonText}>Scores</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>;
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff'
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff"
   },
-  button: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#f2f2f2',
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 10,
-    width: '80%'
+  hamburgerButton: {
+    position: "absolute",
+    top: 10,
+    left: 10
   },
-  image: {
-    width: 50,
-    height: 50,
-    marginRight: 10,
-    borderRadius: 25
+  hamburgerIcon: {
+    width: 30,
+    height: 30
   },
-  buttonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333'
+  bottomMenu: {
+    position: "absolute",
+    bottom: 0,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    width: "100%",
+    height: 60,
+    backgroundColor: "#f2f2f2"
+  },
+  menuButton: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  menuButtonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#333"
   }
 });
 export default Screen;
