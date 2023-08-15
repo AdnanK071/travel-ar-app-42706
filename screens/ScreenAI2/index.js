@@ -1,12 +1,17 @@
+import { Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
 
 const SignUpScreen = () => {
+  const navigation = useNavigation();
   return <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Sign Up</Text>
       <TextInput style={styles.input} placeholder="Username" placeholderTextColor="#999" />
       <TextInput style={styles.input} placeholder="Password" placeholderTextColor="#999" secureTextEntry />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+      navigation.navigate("ScreenAI5");
+    }}>
         <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
       <View style={styles.checkboxContainer}>
@@ -17,8 +22,12 @@ const SignUpScreen = () => {
         </TouchableOpacity>
         <Text style={styles.checkboxText}>
           I agree to the{' '}
-          <Text style={styles.linkText}>Terms and Conditions</Text> and{' '}
-          <Text style={styles.linkText}>Privacy Policy</Text>
+          <Pressable onPress={() => {
+          navigation.navigate("ScreenAI10");
+        }}><Text style={styles.linkText}>Terms and Conditions</Text></Pressable> and{' '}
+          <Pressable onPress={() => {
+          navigation.navigate("ScreenAI11");
+        }}><Text style={styles.linkText}>Privacy Policy</Text></Pressable>
         </Text>
       </View>
       <View style={styles.socialContainer}>

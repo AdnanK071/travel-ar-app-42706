@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, SafeAreaView, StyleSheet } from 'react-native';
 
 const ProfileScreen = () => {
+  const navigation = useNavigation();
   return <SafeAreaView style={styles.container}>
       <View style={styles.profileContainer}>
         <Image source={{
@@ -27,7 +29,9 @@ const ProfileScreen = () => {
           <Text style={styles.infoValue}>5</Text>
         </View>
       </View>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+      navigation.navigate("ScreenAI9");
+    }}>
         <Text style={styles.buttonText}>My AR adventures</Text>
       </TouchableOpacity>
     </SafeAreaView>;

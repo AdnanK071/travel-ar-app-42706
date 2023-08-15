@@ -1,7 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
 import React, { useState } from "react";
 import { View, SafeAreaView, Button, Image, StyleSheet } from "react-native";
 
 const AvatarScreen = () => {
+  const navigation = useNavigation();
   const [avatarImage, setAvatarImage] = useState("");
 
   const handleImageUpload = () => {// Logic to handle image upload
@@ -12,9 +15,11 @@ const AvatarScreen = () => {
         <Button title="Upload Image" onPress={handleImageUpload} />
       </View>
       <View style={styles.avatarContainer}>
-        <Image style={styles.avatarImage} source={{
-        uri: avatarImage || "https://tinyurl.com/42evm3m3"
-      }} />
+        <Pressable onPress={() => {
+        navigation.navigate("ScreenAI6");
+      }}><Image style={styles.avatarImage} source={{
+          uri: avatarImage || "https://tinyurl.com/42evm3m3"
+        }} /></Pressable>
       </View>
     </SafeAreaView>;
 };
