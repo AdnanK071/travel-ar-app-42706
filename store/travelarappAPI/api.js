@@ -23,6 +23,48 @@ function modules_camera_photos_user_retrieve(payload) {
 function modules_camera_upload_image_create(payload) {
   return travelarappAPI.post(`/modules/camera/upload_image/`)
 }
+function modules_contact_us_contact_us_create(payload) {
+  return travelarappAPI.post(`/modules/contact-us/contact_us/`)
+}
+function modules_social_auth_apple_connect_create(payload) {
+  return travelarappAPI.post(
+    `/modules/social-auth/apple/connect/`,
+    payload.data
+  )
+}
+function modules_social_auth_apple_login_create(payload) {
+  return travelarappAPI.post(`/modules/social-auth/apple/login/`, payload.data)
+}
+function modules_social_auth_facebook_connect_create(payload) {
+  return travelarappAPI.post(
+    `/modules/social-auth/facebook/connect/`,
+    payload.data
+  )
+}
+function modules_social_auth_facebook_login_create(payload) {
+  return travelarappAPI.post(
+    `/modules/social-auth/facebook/login/`,
+    payload.data
+  )
+}
+function modules_social_auth_google_connect_create(payload) {
+  return travelarappAPI.post(
+    `/modules/social-auth/google/connect/`,
+    payload.data
+  )
+}
+function modules_social_auth_google_login_create(payload) {
+  return travelarappAPI.post(`/modules/social-auth/google/login/`, payload.data)
+}
+function modules_social_auth_socialaccounts_list(payload) {
+  return travelarappAPI.get(`/modules/social-auth/socialaccounts/`)
+}
+function modules_social_auth_socialaccounts_disconnect_create(payload) {
+  return travelarappAPI.post(
+    `/modules/social-auth/socialaccounts/${payload.id}/disconnect/`,
+    payload.data
+  )
+}
 function rest_auth_login_create(payload) {
   return travelarappAPI.post(`/rest-auth/login/`, payload.data)
 }
@@ -66,6 +108,15 @@ export const apiService = {
   modules_camera_photos_user_list,
   modules_camera_photos_user_retrieve,
   modules_camera_upload_image_create,
+  modules_contact_us_contact_us_create,
+  modules_social_auth_apple_connect_create,
+  modules_social_auth_apple_login_create,
+  modules_social_auth_facebook_connect_create,
+  modules_social_auth_facebook_login_create,
+  modules_social_auth_google_connect_create,
+  modules_social_auth_google_login_create,
+  modules_social_auth_socialaccounts_list,
+  modules_social_auth_socialaccounts_disconnect_create,
   rest_auth_login_create,
   rest_auth_logout_retrieve,
   rest_auth_logout_create,
