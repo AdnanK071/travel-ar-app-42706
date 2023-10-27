@@ -14,24 +14,34 @@ const socialAccountsSlice = createSlice({
   name: "socialAccounts",
   initialState,
   reducers: {},
-  extraReducers: {
-    [modules_social_auth_socialaccounts_list.pending]: (state, action) => {
-      if (state.api.loading === "idle") {
-        state.api.loading = "pending"
-      }
-    },
-    [modules_social_auth_socialaccounts_list.fulfilled]: (state, action) => {
-      if (state.api.loading === "pending") {
-        state.entities = action.payload
-        state.api.loading = "idle"
-      }
-    },
-    [modules_social_auth_socialaccounts_list.rejected]: (state, action) => {
-      if (state.api.loading === "pending") {
-        state.api.error = action.error
-        state.api.loading = "idle"
-      }
-    }
+  extraReducers: builder => {
+    builder
+      .addCase(
+        modules_social_auth_socialaccounts_list.pending,
+        (state, action) => {
+          if (state.api.loading === "idle") {
+            state.api.loading = "pending"
+          }
+        }
+      )
+      .addCase(
+        modules_social_auth_socialaccounts_list.fulfilled,
+        (state, action) => {
+          if (state.api.loading === "pending") {
+            state.entities = action.payload
+            state.api.loading = "idle"
+          }
+        }
+      )
+      .addCase(
+        modules_social_auth_socialaccounts_list.rejected,
+        (state, action) => {
+          if (state.api.loading === "pending") {
+            state.api.error = action.error
+            state.api.loading = "idle"
+          }
+        }
+      )
   }
 })
 export default {

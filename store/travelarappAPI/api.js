@@ -9,10 +9,10 @@ function api_docs_schema_retrieve(payload) {
   })
 }
 function api_v1_login_create(payload) {
-  return travelarappAPI.post(`/api/v1/login/`, payload.data)
+  return travelarappAPI.post(`/api/v1/login/`, payload)
 }
 function api_v1_signup_create(payload) {
-  return travelarappAPI.post(`/api/v1/signup/`, payload.data)
+  return travelarappAPI.post(`/api/v1/signup/`, payload)
 }
 function modules_camera_photos_user_list(payload) {
   return travelarappAPI.get(`/modules/camera/photos/user/`)
@@ -27,34 +27,22 @@ function modules_contact_us_contact_us_create(payload) {
   return travelarappAPI.post(`/modules/contact-us/contact_us/`)
 }
 function modules_social_auth_apple_connect_create(payload) {
-  return travelarappAPI.post(
-    `/modules/social-auth/apple/connect/`,
-    payload.data
-  )
+  return travelarappAPI.post(`/modules/social-auth/apple/connect/`, payload)
 }
 function modules_social_auth_apple_login_create(payload) {
-  return travelarappAPI.post(`/modules/social-auth/apple/login/`, payload.data)
+  return travelarappAPI.post(`/modules/social-auth/apple/login/`, payload)
 }
 function modules_social_auth_facebook_connect_create(payload) {
-  return travelarappAPI.post(
-    `/modules/social-auth/facebook/connect/`,
-    payload.data
-  )
+  return travelarappAPI.post(`/modules/social-auth/facebook/connect/`, payload)
 }
 function modules_social_auth_facebook_login_create(payload) {
-  return travelarappAPI.post(
-    `/modules/social-auth/facebook/login/`,
-    payload.data
-  )
+  return travelarappAPI.post(`/modules/social-auth/facebook/login/`, payload)
 }
 function modules_social_auth_google_connect_create(payload) {
-  return travelarappAPI.post(
-    `/modules/social-auth/google/connect/`,
-    payload.data
-  )
+  return travelarappAPI.post(`/modules/social-auth/google/connect/`, payload)
 }
 function modules_social_auth_google_login_create(payload) {
-  return travelarappAPI.post(`/modules/social-auth/google/login/`, payload.data)
+  return travelarappAPI.post(`/modules/social-auth/google/login/`, payload)
 }
 function modules_social_auth_socialaccounts_list(payload) {
   return travelarappAPI.get(`/modules/social-auth/socialaccounts/`)
@@ -62,11 +50,11 @@ function modules_social_auth_socialaccounts_list(payload) {
 function modules_social_auth_socialaccounts_disconnect_create(payload) {
   return travelarappAPI.post(
     `/modules/social-auth/socialaccounts/${payload.id}/disconnect/`,
-    payload.data
+    payload
   )
 }
 function rest_auth_login_create(payload) {
-  return travelarappAPI.post(`/rest-auth/login/`, payload.data)
+  return travelarappAPI.post(`/rest-auth/login/`, payload)
 }
 function rest_auth_logout_retrieve(payload) {
   return travelarappAPI.get(`/rest-auth/logout/`)
@@ -75,31 +63,28 @@ function rest_auth_logout_create(payload) {
   return travelarappAPI.post(`/rest-auth/logout/`)
 }
 function rest_auth_password_change_create(payload) {
-  return travelarappAPI.post(`/rest-auth/password/change/`, payload.data)
+  return travelarappAPI.post(`/rest-auth/password/change/`, payload)
 }
 function rest_auth_password_reset_create(payload) {
-  return travelarappAPI.post(`/rest-auth/password/reset/`, payload.data)
+  return travelarappAPI.post(`/rest-auth/password/reset/`, payload)
 }
 function rest_auth_password_reset_confirm_create(payload) {
-  return travelarappAPI.post(`/rest-auth/password/reset/confirm/`, payload.data)
+  return travelarappAPI.post(`/rest-auth/password/reset/confirm/`, payload)
 }
 function rest_auth_registration_create(payload) {
-  return travelarappAPI.post(`/rest-auth/registration/`, payload.data)
+  return travelarappAPI.post(`/rest-auth/registration/`, payload)
 }
 function rest_auth_registration_verify_email_create(payload) {
-  return travelarappAPI.post(
-    `/rest-auth/registration/verify-email/`,
-    payload.data
-  )
+  return travelarappAPI.post(`/rest-auth/registration/verify-email/`, payload)
 }
 function rest_auth_user_retrieve(payload) {
   return travelarappAPI.get(`/rest-auth/user/`)
 }
 function rest_auth_user_update(payload) {
-  return travelarappAPI.put(`/rest-auth/user/`, payload.data)
+  return travelarappAPI.put(`/rest-auth/user/`, payload)
 }
 function rest_auth_user_partial_update(payload) {
-  return travelarappAPI.patch(`/rest-auth/user/`, payload.data)
+  return travelarappAPI.patch(`/rest-auth/user/`, payload)
 }
 export const apiService = {
   api_docs_schema_retrieve,
