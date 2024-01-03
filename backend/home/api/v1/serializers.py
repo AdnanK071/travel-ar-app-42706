@@ -8,6 +8,9 @@ from allauth.account.adapter import get_adapter
 from allauth.account.utils import setup_user_email
 from rest_framework import serializers
 from rest_auth.serializers import PasswordResetSerializer
+from django.contrib.auth import authenticate
+from rest_framework import status
+
 
 
 User = get_user_model()
@@ -69,6 +72,37 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'email', 'name']
+
+
+class AuthTokenSerializer(serializers.Serializer):
+    email = serializers.CharField(label=_("Email"), write_only=True)
+    password = serializers.CharField(
+        label=_("Password"),
+        style={"input_type": "password"},
+        trim_whitespace=False,
+        write_only=True,
+    )
+    token = serializers.CharField(label=_("Token"), read_only=True)
+    def validate(self, attrs):
+        email = attrs.get("email")
+        password = attrs.get("password")
+        if email and password:
+            user = authenticate(
+                request=self.context.get("request"), email=email, password=password
+            )
+            if not user:
+                msg = _("Username or Password is incorrect.")
+                error = {
+                            "status": "error",
+                            "code": status.HTTP_400_BAD_REQUEST,
+                            "message": msg
+                        }
+                raise serializers.ValidationError(({'non_field_error': error}))
+        else:
+            msg = _('Must include "email" and "password".')
+            raise serializers.ValidationError(msg, code="authorization")
+        attrs["user"] = user
+        return attrs
 
 
 class PasswordSerializer(PasswordResetSerializer):
